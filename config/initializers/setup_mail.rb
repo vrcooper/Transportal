@@ -6,7 +6,7 @@ if Rails.env.development? || Rails.env.production?
     user_name:     ENV['MAILGUN_SMTP_LOGIN'],
     password:      ENV['MAILGUN_SMTP_PASSWORD'],
     domain:        'transportal.herokuapp.com',
-    authentication :plain,
+    authentication: :plain,
     content_type:   'text/html'
   }
 
