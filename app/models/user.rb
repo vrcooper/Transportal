@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
-  has_many :translations, dependent: :destroy
+  #has_many :translations, dependent: :destroy
 
   mount_uploader :avatar, AvatarUploader
   

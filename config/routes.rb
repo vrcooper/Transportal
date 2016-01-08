@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   get 'users/show'
 
   devise_for :users
-  #get 'welcome/index'
+  get 'welcome/index'
   resources :users, only: [:update, :show]
 
   get 'welcome/about'
