@@ -6,9 +6,12 @@
 
 <br />
 
+ <% if policy(Project.new).create? %>
 <%= link_to "New Project", new_project_path, class: "btn btn-primary" %>
 <br />
 <br />
+
+<% end %>
 
 <table class = "table table-bordered table-striped">
   <thread>
