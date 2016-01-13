@@ -51,6 +51,7 @@ group :development do
   gem 'sqlite3'
 end
 
+gem 'aws-sdk'
 gem 'bootstrap-sass'
 gem 'devise'
 gem 'figaro', '1.0'
