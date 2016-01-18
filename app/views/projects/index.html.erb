@@ -6,8 +6,10 @@
 
 <br />
 
- 
+ <% if policy(Project.new).create? %>
 <%= link_to "New Project", new_project_path, class: "btn btn-primary" %>
+<% end %>
+
 <br />
 <br />
 
@@ -16,9 +18,9 @@
 <table class = "table table-bordered table-striped">
   <thread>
     <tr>
-      <th>Name</th>
+      <th>Project Name</th>
       
-        <th>Download Link</th>
+        <th>Document Link</th> 
         <th> </th>
       
     </tr>
@@ -30,8 +32,9 @@
     <tr>
       <td><%= project.name %></td>
       
-      <td><%= link_to "Download Project", project.attachment_url %></td>
+      <td><%= link_to "Download Document", project.attachment_url %></td>
       <td><%= button_to "Delete", project, method: :delete, class: "btn btn-danger", confirm: "Are you sure that you wish to delete #{project.name}?" %></td>
+
     </tr>
     
   <% end %>

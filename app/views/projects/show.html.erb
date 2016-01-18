@@ -1,0 +1,9 @@
+
+<br>
+
+ <div class="col-md-4">
+  <% if policy(Project).index? %>
+  <%= link_to "New Document", new_document_path(@project), class: 'btn btn-success' %>
+  <% end %>
+  
+  </div>
