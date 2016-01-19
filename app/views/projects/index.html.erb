@@ -20,9 +20,6 @@
     <tr>
       <th>Project Name</th>
       
-        <th>Document Link</th> 
-        <th> </th>
-      
     </tr>
   </thread>
  
@@ -30,10 +27,9 @@
     <% @projects.each do |project| %>
 
     <tr>
-      <td><%= project.name %></td>
+      <td><%= link_to project.name, project_path(project) %></td>
       
-      <td><%= link_to "Download Document", project.attachment_url %></td>
-      <td><%= button_to "Delete", project, method: :delete, class: "btn btn-danger", confirm: "Are you sure that you wish to delete #{project.name}?" %></td>
+      
 
     </tr>
     

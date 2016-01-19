@@ -10,7 +10,8 @@ class ProjectsController < ApplicationController
   end
 
   def show
-    
+    @project = Project.find(params[:id])
+    authorize @project
   end
 
   def edit
