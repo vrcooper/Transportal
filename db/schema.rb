@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160117084747) do
+ActiveRecord::Schema.define(version: 20160120065831) do
 
   create_table "collaborations", force: :cascade do |t|
     t.integer  "project_id"
@@ -26,12 +26,12 @@ ActiveRecord::Schema.define(version: 20160117084747) do
     t.integer  "project_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "attachment"
   end
 
   add_index "documents", ["project_id"], name: "index_documents_on_project_id"
 
   create_table "projects", force: :cascade do |t|
-    t.string   "attachment"
     t.string   "name"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false

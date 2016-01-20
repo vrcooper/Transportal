@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get 'welcome/index'
   resources :users, only: [:update, :show]
 
-  #resources :projects, only:[:index, :show, :new, :create, :destroy]
+  resources :projects, only:[:index, :show, :new, :create, :destroy]
 
   resources :projects do
     resources :documents, only:[:index, :show, :new, :edit]
