@@ -19,7 +19,6 @@
   <thread>
     <tr>
       <th>Project Name</th>
-      
     </tr>
   </thread>
  
@@ -28,9 +27,7 @@
 
     <tr>
       <td><%= link_to project.name, project_path(project) %></td>
-      
-      
-
+      <td><%= button_to "Delete", project_path(project), method: :delete, class: "btn btn-danger", confirm: "Are you sure that you wish to delete #{project.name}?" %> </td>
     </tr>
     
   <% end %>

@@ -1,23 +1,23 @@
-<%= form_for documents do |f| %>
+<%= form_for [project, document], multipart:true do |f| %>
   <% if document.errors.any? %>
-  <div class="alert alert-danger">
-    <h4>There are <%= pluralize(document.errors.count, "error") %>.</h4>
-    <ul>
-      <% document.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-      <% end %>
-    </ul>
-  </div>
+    <div class="alert alert-danger">
+      <h4>There are <%= pluralize(document.errors.count, "error") %>.</h4>
+      <ul>
+        <% document.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
   <% end %>
   <%= form_group_tag(document.errors[:name]) do %>
     <%= f.label :name %>
     <%= f.text_field :name, class: 'form-control', placeholder: "Enter document title" %>
-    <% end %>
-    <%= form_group_tag(document.errors[:description]) do %>
-    <%= f.label :description %>
-    <%= f.text_area :description, rows: 8, class: 'form-control', placeholder: "Enter translation body text" %>
-    <% end %>
+  <% end %>
+  <%= form_group_tag(document.errors[:attachment]) do %>
+    <%= f.label :attachment %>
+    <%= f.file_field :attachment %>
+  <% end %>
     <div class="form-group">
       <%= f.submit "Save", class: 'btn btn-success' %>
     </div>
-    <% end %>
+<% end %>

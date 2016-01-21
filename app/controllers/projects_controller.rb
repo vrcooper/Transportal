@@ -11,12 +11,27 @@ class ProjectsController < ApplicationController
 
   def show
     @project = Project.find(params[:id])
+    @documents = @project.documents
     authorize @project
   end
 
   def edit
-    
+    @project = Project.find(params[:id])
+    authorize @project
   end
+
+  def update
+    @project = Project.find(params[:id])
+    authorize @project
+
+    if @project.update_attributes(params.require(:project).permit(:name, :description))
+      redirect_to @project
+    else
+      flash[:error] = "Error saving topic. Please try again."
+      render :edit
+  end
+
+end
 
   def create
     @project = Project.new(project_params)
@@ -39,6 +54,6 @@ class ProjectsController < ApplicationController
 
   private
     def project_params
-      params.require(:project).permit(:name)
+      params.require(:project).permit(:name, :description)
     end
 end

@@ -4,11 +4,11 @@ Rails.application.routes.draw do
   get 'welcome/index'
   resources :users, only: [:update, :show]
 
-  resources :projects, only:[:index, :show, :new, :create, :destroy]
-
+  resources :projects
+  
   resources :projects do
-    resources :documents, only:[:index, :show, :new, :edit]
-    end
+    resources :documents
+  end
   #resources :documents
   #resources :documents, only:[:index, :show, :new, :edit]
 

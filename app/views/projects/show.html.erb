@@ -1,3 +1,27 @@
-<% @project.documents.each do |document| %>
-<%= link_to document.name, document_path_id %>
-<% end %>
+<table class = "table table-bordered table-striped">
+  <thread>
+    <tr>
+      <th>File Name</th>
+      
+        <th>Download Attachment</th>
+        <th> </th>
+      
+    </tr>
+  </thread>
+
+<tbody>
+    <% @documents.each do |document| %>
+
+    <tr>
+      <td><%= document.name %></td>
+      
+      <td><%= link_to "Download Attachment", document.attachment_url %></td>
+      <td><%= button_to "Delete", [@project, document], method: :delete, class: "btn btn-danger", confirm: "Are you sure that you wish to delete #{document.name}?" %></td>
+    </tr>
+    
+  <% end %>
+</tbody>
+
+</table>
+
+<%= render partial: 'documents/form', locals: {document: Document.new, project: @project} %>
