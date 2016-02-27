@@ -9,7 +9,9 @@ Rails.application.routes.draw do
   resources :projects do
     resources :documents
   end
-  #resources :documents
+  
+
+  resources :documents
   #resources :documents, only:[:index, :show, :new, :edit]
 
   get 'welcome/about'

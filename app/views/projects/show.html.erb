@@ -15,7 +15,7 @@
     <% @documents.each do |document| %>
 
     <tr>
-      <td><%= document.name %></td>
+      <td><%= link_to document.name, new_document_path(@document) %></td>
       
       <td><%= link_to "Download Attachment", document.attachment_url %></td>
       <td><%= button_to "Delete", [@project, document], method: :delete, class: "btn btn-danger", confirm: "Are you sure that you wish to delete #{document.name}?" %></td>
